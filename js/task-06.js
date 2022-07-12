@@ -1,15 +1,16 @@
 const textInputEl = document.querySelector('#validation-input');
 
-textInputEl.addEventListener('blur', (event) => {
+textInputEl.addEventListener('blur', ({currentTarget}) => {
 
-    if (event.currentTarget.value.length < textInputEl.dataset.length || event.currentTarget.value.length > textInputEl.dataset.length) {
-        console.log('Please enter 6 symbols');
-        return textInputEl.classList.add('invalid');
+    if (currentTarget.value.length === Number(textInputEl.dataset.length)) {
+        textInputEl.classList.add('valid');
+        textInputEl.classList.remove('invalid');
+        return textInputEl;
     };
+    textInputEl.classList.remove('valid');
+    textInputEl.classList.add('invalid');
 
-    textInputEl.classList.remove('invalid');
-    textInputEl.classList.add('valid');
-
+    console.log('Please enter 6 symbols');
 })
 
 
