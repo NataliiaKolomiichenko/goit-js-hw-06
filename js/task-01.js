@@ -5,7 +5,7 @@ const numberOfCat = `Number of category: ${listEl.children.length}`;
 console.log(numberOfCat);
 
 
-const item = [...itemsEl].map(el => {
+const item = [...itemsEl].forEach(el => {
     console.log(`Category: ${el.firstElementChild.textContent}`);
     console.log(`Elements: ${el.lastElementChild.children.length}`);
 });
